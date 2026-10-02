@@ -974,9 +974,16 @@ dxSTable.prototype.createRow = function(cols, sId, icon, attr) {
 					.css(this.progressStyle(celldata)),
 			);
 		} else if (isLabel) {
-			td.append(
-				$("<div>").html((celldata || " ").replace(/`(.*?)`$/, '<code>$1</code>')),
-			);
+			const value = celldata || " ";
+			const match = /`(.*?)`$/.exec(value);
+			const content = $("<div>");
+			if (match) {
+				content.text(value.substring(0, match.index));
+				content.append($("<code>").text(match[1]));
+			} else {
+				content.text(value);
+			}
+			td.append(content);
 		} else {
 			td.append(
 				$("<div>").text(celldata || " "),
