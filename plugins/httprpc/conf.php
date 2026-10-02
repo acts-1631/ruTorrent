@@ -4,7 +4,7 @@
 // Options:
 //   "sanitize"           — (default) allow load.* with safe params only,
 //                          pass other methods as untrusted
-// Passing a method as untrusted only restricts it on rtorrent 0.16.10 and
+// Passing a method as untrusted only restricts it on rtorrent 0.16.9 and
 // later, which is where the UNTRUSTED_CONNECTION header is honoured. Older
 // versions ignore it and run those calls with full trust.
 //   "passthrough_unsafe" — send all raw XMLRPC as trusted (DANGEROUS)

@@ -93,6 +93,8 @@ class XMLRPCProxy
 	// untrusted" is a plain forward and this list is the only refusal there is.
 	private static $denyPrefixes = array(
 		'execute',                // and execute2, execute.capture, execute.raw.bg, ...
+		'file.append',            // writes attacker-controlled data to an arbitrary path
+		'lua.',                   // lua.execute / lua.execute.str run unrestricted Lua
 		'method.',                // insert / set / set_key / erase / redirect
 		'import', 'try_import',   // read a file of commands
 		'schedule',               // and schedule2, schedule.remove, scheduler.*
